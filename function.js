@@ -44,3 +44,20 @@ export function caesarCipher(str, shift) {
 
   return result;
 }
+
+export function analyzeArray(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return { average: 0, min: 0, max: 0, length: 0};
+  }
+  
+  const sum = arr.reduce((acc, current) => acc + current, 0);
+  const average = Math.round((sum / arr.length)*100)/100;
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  const length = arr.length;
+
+  return { average, min, max, length };
+}
+
+const object = analyzeArray([1,8,3,4,2,6]);
+console.log(object);
